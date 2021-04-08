@@ -1,0 +1,31 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /travel
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - prometheus
+          - metrics
+
+oauth2:
+  client-id: travel-api-client
+  client-secret-encrypted: ENC(NlXqBT62r1y9/2paizLa1sWV22cSYh26Lyw4AuDrXFlqatOHWNLywJTJ8vKZV8s3)
+  token-url: http://localhost:8080/oauth/token
+
+mock:
+  fare-url: http://localhost:8080/fares/{origin}/{destination}
+  airports-url: http://localhost:8080/airports
+
